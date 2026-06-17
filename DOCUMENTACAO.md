@@ -4,7 +4,9 @@
 > Aplicativo mobile para estudantes da PUCPR encontrarem restaurantes próximos ao campus.
 >
 > Este documento registra as **definições**, as **decisões de design** e os **ajustes**
-> realizados ao longo do desenvolvimento do protótipo.
+> realizados ao longo do desenvolvimento.
+
+<br>
 
 <p align="center">
   <img src="docs/img/01-splash.png" alt="Tela de abertura do UniRango" width="220" />
@@ -26,8 +28,6 @@
 6. [Arquitetura de informação e fluxos](#6-arquitetura-de-informação-e-fluxos)
 7. [Decisões de cada tela](#7-decisões-de-cada-tela)
 8. [Ajustes feitos durante o desenvolvimento](#8-ajustes-feitos-durante-o-desenvolvimento)
-9. [Decisões técnicas](#9-decisões-técnicas)
-10. [Artefatos construídos](#10-artefatos-construídos)
 
 ---
 
@@ -53,8 +53,7 @@ não atendem bem esse cenário porque:
 
 ### 2.1 Objetivo
 
-Entregar um **protótipo navegável de alta fidelidade** que valide a proposta de valor e o fluxo
-de uso principal, servindo de base para validações com usuários e evolução futura.
+Ajudar estudantes da PUCPR a decidir rapidamente onde comer perto do campus, reunindo num só lugar preço, distância, tempo de espera e avaliações reais.
 
 ### 2.2 Público-alvo
 
@@ -335,100 +334,16 @@ para o primeiro contato — alinhado ao princípio de "rapidez acima de tudo".
 
 Registro das principais mudanças e refinamentos ao longo da construção do protótipo:
 
-1. **De emojis para fotos reais.**
-   *Antes:* os cards usavam emojis de comida como imagem (mais rápido de prototipar).
-   *Ajuste:* substituídos por **fotos reais** de estabelecimentos, com o emoji mantido apenas
-   como fundo de cor de fallback.
-   *Motivo:* aumentar drasticamente o realismo e o apelo visual do protótipo.
-
-<table>
-<tr>
-<td width="240"><img src="docs/img/08-detalhe-cardapio.png" alt="Detalhe do restaurante com foto real" width="220" /></td>
-<td>
-
-O resultado do ajuste aparece com clareza na **tela de detalhe**: a foto real no *hero*, as
-**quick pills** (nota, distância e tempo) logo abaixo e o **cardápio** com itens marcados como
-"Mais pedido". Comparado aos emojis iniciais, o ganho de realismo é evidente.
-
-</td>
-</tr>
-</table>
-
-2. **Filtros: de decorativos para funcionais.**
-   *Antes:* os botões de filtro eram apenas visuais.
-   *Ajuste:* passaram a abrir um *drawer*, refletir a seleção no rótulo e **realmente filtrar**
-   os resultados, com opção de limpar.
-   *Motivo:* validar de fato a experiência de busca, não só a aparência.
-
-3. **Sincronização de favoritos entre telas.**
-   *Antes:* favoritar em uma tela não refletia nas outras.
-   *Ajuste:* o estado passou a ser **propagado para todas as ocorrências** do mesmo restaurante.
-   *Motivo:* evitar a sensação de inconsistência e bug.
-
-4. **Reset do histórico ao trocar de aba.**
-   *Antes:* o botão "voltar" podia acumular telas e gerar caminhos confusos.
-   *Ajuste:* acessar uma aba principal **reinicia a pilha de navegação**.
-   *Motivo:* comportamento previsível, como em apps nativos.
-
-5. **Cabeçalhos com botão "voltar" padronizados.**
+1. **Cabeçalhos com botão "voltar" padronizados.**
    *Ajuste:* criação de variações de cabeçalho consistentes para as telas internas.
    *Motivo:* o usuário sempre sabe como retornar.
 
-6. **Responsividade por escala da moldura.**
+2. **Responsividade por escala da moldura.**
    *Antes:* a moldura podia "estourar" em janelas pequenas.
    *Ajuste:* a moldura inteira passou a ser **escalada proporcionalmente** conforme o tamanho da
    janela.
    *Motivo:* preservar a fidelidade do design mobile em qualquer tela.
 
-7. **Estados vazios mais amigáveis.**
-   *Ajuste:* inclusão de ilustração, mensagem e ação sugerida nas telas sem conteúdo.
-   *Motivo:* orientar o usuário em vez de deixar a tela em branco.
-
-8. **Inclusão da página de LGPD.**
+3. **Inclusão da página de LGPD.**
    *Ajuste:* adicionada após a definição de que o app lidaria com localização e e-mail.
    *Motivo:* conformidade e confiança.
-
-9. **Refinamento de microinterações.**
-   *Ajuste:* animação do coração ao favoritar, sublinhado animado nas abas do detalhe, *toasts*
-   de feedback e transições suaves entre telas.
-   *Motivo:* dar a sensação polida de produto real.
-
----
-
-## 9. Decisões técnicas
-
-Decisões tomadas para viabilizar o protótipo de forma leve e demonstrável:
-
-| Decisão | Escolha | Motivo |
-|---------|---------|--------|
-| Tecnologia | HTML, CSS e JavaScript puros | Sem build nem dependências; fácil de rodar e publicar. |
-| Sem framework | Vanilla JS | Manter o protótipo simples e direto. |
-| Estilização | CSS com variáveis (design tokens) | Consistência e manutenção fácil do Design System. |
-| Ícones | Lucide (via CDN) | Conjunto de ícones moderno e coeso. |
-| Tipografia | Google Fonts (Poppins + Inter) | Identidade + legibilidade. |
-| Imagens | Fotos via Unsplash | Realismo sem armazenar assets. |
-| Estrutura | `index.html` + `styles/main.css` + `scripts/app.js` | Separação clara de estrutura, estilo e comportamento. |
-
-> O protótipo pode ser publicado gratuitamente via **GitHub Pages**, facilitando o
-> compartilhamento do link para validação.
-
----
-
-## 10. Artefatos construídos
-
-| Artefato | Arquivo | Descrição |
-|----------|---------|-----------|
-| Estrutura base + moldura do dispositivo | [index.html](index.html) | Ponto de entrada do protótipo. |
-| Design System e estilos de todas as telas | [styles/main.css](styles/main.css) | Tokens, componentes e layout. |
-| Lógica, conteúdo e navegação | [scripts/app.js](scripts/app.js) | Telas, dados de exemplo e interações. |
-| Documentação de design | [DOCUMENTACAO.md](DOCUMENTACAO.md) | Este documento. |
-
-**Artefatos de design embutidos no protótipo:**
-- Logotipo e ilustrações de onboarding (SVG próprios).
-- Paleta de cores e tipografia (design tokens).
-- Biblioteca de componentes (cards, chips, botões, abas, toasts, estados vazios).
-- 12 telas navegáveis cobrindo o fluxo completo.
-
----
-
-*UniRango v1.0 • Projeto acadêmico desenvolvido na PUCPR (Curitiba).*
