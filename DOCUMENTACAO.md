@@ -6,6 +6,14 @@
 > Este documento registra as **definições**, as **decisões de design** e os **ajustes**
 > realizados ao longo do desenvolvimento do protótipo.
 
+<p align="center">
+  <img src="docs/img/01-splash.png" alt="Tela de abertura do UniRango" width="220" />
+  &nbsp;&nbsp;
+  <img src="docs/img/04-home.png" alt="Tela inicial do UniRango" width="220" />
+  &nbsp;&nbsp;
+  <img src="docs/img/08-detalhe-cardapio.png" alt="Detalhe do restaurante" width="220" />
+</p>
+
 ---
 
 ## Sumário
@@ -20,7 +28,6 @@
 8. [Ajustes feitos durante o desenvolvimento](#8-ajustes-feitos-durante-o-desenvolvimento)
 9. [Decisões técnicas](#9-decisões-técnicas)
 10. [Artefatos construídos](#10-artefatos-construídos)
-11. [Aprendizados e próximos passos](#11-aprendizados-e-próximos-passos)
 
 ---
 
@@ -56,13 +63,13 @@ limitado, que precisam de decisões rápidas sobre alimentação durante o dia l
 
 ### 2.3 Escopo definido
 
-| Dentro do escopo | Fora do escopo (nesta fase) |
-|------------------|------------------------------|
-| Fluxo de entrada (splash, onboarding, login) | Back-end e banco de dados reais |
-| Descoberta de restaurantes (home, busca, filtros) | Pagamentos / pedidos online |
-| Detalhe do restaurante (cardápio, avaliações, info) | Geolocalização real |
-| Favoritos e perfil | Autenticação real |
-| Páginas de apoio (notificações, LGPD, sobre) | Persistência entre sessões |
+| Dentro do escopo |
+|------------------|
+| Fluxo de entrada (splash, onboarding, login) |
+| Descoberta de restaurantes (home, busca, filtros) |
+| Detalhe do restaurante (cardápio, avaliações, info) |
+| Favoritos e perfil |
+| Páginas de apoio (notificações, LGPD, sobre) |
 
 ### 2.4 Princípios de design adotados
 
@@ -128,6 +135,19 @@ A escolha das cores foi intencional para transmitir **apetite, energia e confian
 Combinar uma fonte expressiva (títulos) com uma neutra (corpo) é uma decisão clássica que
 equilibra identidade e clareza.
 
+<table>
+<tr>
+<td width="240"><img src="docs/img/01-splash.png" alt="Splash do UniRango" width="220" /></td>
+<td>
+
+A **tela de abertura** reúne toda a identidade visual definida: o **logotipo** (garfo + colher
+com detalhe âmbar), o fundo na cor primária **vinho**, o título em **Poppins** e o slogan em
+**Inter**. É a primeira impressão de marca do app.
+
+</td>
+</tr>
+</table>
+
 ### 4.5 Linguagem visual (tokens)
 
 Para garantir consistência, foi definido um **Design System** com *design tokens*:
@@ -173,6 +193,20 @@ nota + tempo → faixa de preço**, com **distância como badge sobre a foto**.
 **Motivo:** alinhar diretamente às descobertas da pesquisa (preço, distância e tempo são
 decisivos). O usuário decide sem precisar abrir o detalhe.
 
+<table>
+<tr>
+<td>
+
+Na **tela inicial**, repare como cada card mostra de imediato a **distância** (badge sobre a
+foto), a **nota**, o **tempo de espera** e a **faixa de preço** — exatamente os dados decisivos.
+A home ainda combina o **carrossel horizontal** ("Próximos a você") com os **cards de destaque**
+verticais.
+
+</td>
+<td width="240"><img src="docs/img/04-home.png" alt="Tela inicial com cards de restaurante" width="220" /></td>
+</tr>
+</table>
+
 ### 5.5 Três formatos de card para três contextos
 
 - **Card horizontal** (carrossel "Próximos a você") — descoberta rápida por scroll lateral.
@@ -188,6 +222,19 @@ podem ser combinados, com rótulo refletindo a seleção e opção de "Limpar".
 
 **Motivo:** dar controle real ao usuário sem poluir a tela — os filtros ficam recolhidos até
 serem acionados.
+
+<table>
+<tr>
+<td width="240"><img src="docs/img/05-busca-filtros.png" alt="Tela de busca com filtros" width="220" /></td>
+<td>
+
+A **tela de busca** mostra os filtros recolhidos no topo; ao tocar em um deles (ex.: **Preço**),
+abre-se o *drawer* com as opções e o botão **Limpar**. Os resultados, em **cards de lista**
+compactos, atualizam em tempo real conforme a busca e os filtros aplicados.
+
+</td>
+</tr>
+</table>
 
 ### 5.7 Favoritos com feedback imediato
 
@@ -257,6 +304,31 @@ para o primeiro contato — alinhado ao princípio de "rapidez acima de tudo".
 | **Detalhe** | Hero com foto, "quick pills" (nota/distância/tempo) e abas Cardápio/Avaliações/Info. | Toda a informação de decisão organizada e escaneável. |
 | **Privacidade/Sobre** | Páginas de texto com hierarquia clara. | Transparência e credibilidade. |
 
+### Galeria de telas
+
+<table>
+<tr>
+<td align="center"><img src="docs/img/01-splash.png" width="200" /><br/><sub><b>Splash</b></sub></td>
+<td align="center"><img src="docs/img/02-onboarding.png" width="200" /><br/><sub><b>Onboarding</b></sub></td>
+<td align="center"><img src="docs/img/03-login.png" width="200" /><br/><sub><b>Login / Cadastro</b></sub></td>
+</tr>
+<tr>
+<td align="center"><img src="docs/img/04-home.png" width="200" /><br/><sub><b>Home</b></sub></td>
+<td align="center"><img src="docs/img/05-busca-filtros.png" width="200" /><br/><sub><b>Buscar + filtros</b></sub></td>
+<td align="center"><img src="docs/img/06-favoritos.png" width="200" /><br/><sub><b>Favoritos</b></sub></td>
+</tr>
+<tr>
+<td align="center"><img src="docs/img/07-perfil.png" width="200" /><br/><sub><b>Perfil</b></sub></td>
+<td align="center"><img src="docs/img/08-detalhe-cardapio.png" width="200" /><br/><sub><b>Detalhe — Cardápio</b></sub></td>
+<td align="center"><img src="docs/img/09-detalhe-avaliacoes.png" width="200" /><br/><sub><b>Detalhe — Avaliações</b></sub></td>
+</tr>
+<tr>
+<td align="center"><img src="docs/img/10-notificacoes.png" width="200" /><br/><sub><b>Notificações</b></sub></td>
+<td></td>
+<td></td>
+</tr>
+</table>
+
 ---
 
 ## 8. Ajustes feitos durante o desenvolvimento
@@ -268,6 +340,19 @@ Registro das principais mudanças e refinamentos ao longo da construção do pro
    *Ajuste:* substituídos por **fotos reais** de estabelecimentos, com o emoji mantido apenas
    como fundo de cor de fallback.
    *Motivo:* aumentar drasticamente o realismo e o apelo visual do protótipo.
+
+<table>
+<tr>
+<td width="240"><img src="docs/img/08-detalhe-cardapio.png" alt="Detalhe do restaurante com foto real" width="220" /></td>
+<td>
+
+O resultado do ajuste aparece com clareza na **tela de detalhe**: a foto real no *hero*, as
+**quick pills** (nota, distância e tempo) logo abaixo e o **cardápio** com itens marcados como
+"Mais pedido". Comparado aos emojis iniciais, o ganho de realismo é evidente.
+
+</td>
+</tr>
+</table>
 
 2. **Filtros: de decorativos para funcionais.**
    *Antes:* os botões de filtro eram apenas visuais.
@@ -343,22 +428,6 @@ Decisões tomadas para viabilizar o protótipo de forma leve e demonstrável:
 - Paleta de cores e tipografia (design tokens).
 - Biblioteca de componentes (cards, chips, botões, abas, toasts, estados vazios).
 - 12 telas navegáveis cobrindo o fluxo completo.
-
----
-
-## 11. Aprendizados e próximos passos
-
-### Aprendizados
-- Priorizar **preço, distância e tempo** nos cards foi a decisão de maior impacto na clareza.
-- Tornar os filtros **realmente funcionais** mudou a percepção de "maquete" para "produto".
-- Microinterações e estados vazios são o que fazem o protótipo "parecer real".
-
-### Próximos passos sugeridos
-- Testes de usabilidade com estudantes para validar os fluxos.
-- Integração com back-end, autenticação real e geolocalização.
-- Persistência de favoritos e preferências.
-- Sistema real de avaliações (criar/editar) e notificações.
-- Evolução para **PWA** (instalável e com uso offline).
 
 ---
 
